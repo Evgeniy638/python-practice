@@ -1,3 +1,5 @@
+import math
+
 
 def f11(x, y):
     return 18*x - math.cos(y) - 60 + abs(math.log(x) + x ** 6/28) + x ** 4 - math.sqrt(y ** 2/3 - math.cos(x))
@@ -11,7 +13,7 @@ def f12(x):
     elif 9 <= x < 101:
         return (math.sin(x) + math.tan(x) - 12) ** 3/33 - 56 * x
     elif x >= 101:
-        return x ** 3 - x ** 4 + 77*x - 20
+        return math.sin(x ** 3 - x ** 4) + 77*x - 20
 
 
 def f13(n, m):

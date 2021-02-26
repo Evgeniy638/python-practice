@@ -3,7 +3,7 @@ def delete_empty_column(table):
 
     for i in range(len(res_table)):
         for j in range(len(res_table[i]) - 1, -1, -1):
-            if res_table[i][j] == "":
+            if res_table[i][j] is None:
                 del res_table[i][j]
 
     return res_table
@@ -23,7 +23,7 @@ def delete_copy_row(table):
 
 def transform(table):
     for i in range(len(table)):
-        table[i][0] = 1 if table[i][0] == "Да" else 0
+        table[i][0] = '1' if table[i][0] == "Да" else '0'
 
         table[i][1] = table[i][1].split("/")[2]
 
@@ -51,11 +51,11 @@ def transpose(table):
     return res_table
 
 
-def f23(*args):
-    res_table = delete_empty_column(list(args))
+def f23(table):
+    res_table = delete_empty_column(table)
     res_table = delete_copy_row(res_table)
     res_table = transform(res_table)
     res_table = sort(res_table)
     res_table = transpose(res_table)
 
-    return tuple(res_table)
+    return res_table
